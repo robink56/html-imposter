@@ -11,6 +11,7 @@ const turnText = document.getElementById("turnText");
 const showRoleBtn = document.getElementById("showRoleBtn");
 const nextPlayerBtn = document.getElementById("nextPlayerBtn");
 const roleCard = document.getElementById("roleCard");
+const restartBtn = document.getElementById("restartBtn");
 
 const photoMap = {
   namrata: "images/Namrata.jpg",
@@ -180,7 +181,7 @@ function generateRoles() {
     if (i === imposterIndex) {
       roles.push({
         role: "Imposter",
-        message: "You are the Imposter!",
+        message: "Tai raixas chorrr,natak napar!",
         hint: secretHint
       });
     } else {
@@ -250,7 +251,35 @@ nextPlayerBtn.addEventListener("click", function () {
     roleCard.style.display = "block";
     showRoleBtn.classList.add("hidden");
     nextPlayerBtn.classList.add("hidden");
+     restartBtn.classList.remove("hidden");
   }
 });
 
+function restartGame() {
+  players = [];
+  roles = [];
+  currentPlayerIndex = 0;
+
+  playerCountInput.value = "";
+  imposterCountInput.value = 1;
+
+  nameInputsDiv.innerHTML = "";
+
+  nameSection.classList.add("hidden");
+  roleSection.classList.add("hidden");
+
+  roleCard.style.display = "none";
+  roleCard.innerHTML = "";
+
+  turnText.textContent = "";
+
+  showRoleBtn.classList.remove("hidden");
+  nextPlayerBtn.classList.add("hidden");
+  restartBtn.classList.add("hidden");
+}
+
+
+restartBtn.addEventListener("click", function () {
+  restartGame();
+});
 console.log("Total words:", words.length);

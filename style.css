@@ -219,4 +219,9 @@ button:active {
     width: 74px;
     height: 74px;
   }
+
+  #restartBtn {
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
+  box-shadow: 0 8px 18px rgba(238, 9, 121, 0.25);
+}
 }
